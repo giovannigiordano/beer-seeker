@@ -1,5 +1,4 @@
-#Beer Seeker
-
+# Beer Seeker
 A simple SPA which show a list of beers retrieved by the [Punk Api](https://punkapi.com/documentation/v2).
 
 
