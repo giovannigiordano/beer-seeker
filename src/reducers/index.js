@@ -1,12 +1,33 @@
 import { combineReducers } from 'redux'
 import {FETCH_BEERS_REQUEST, FETCH_BEERS_FAILURE, FETCH_BEERS_SUCCESS} from "../constants/";
 
-const beers = (state = [], action) => {
+const beers =
+  (state = {
+    hasError: false,
+    ioFetching: false,
+    items: []
+  }, action) => {
   switch (action.type) {
+    case FETCH_BEERS_REQUEST:
+      return {
+        ...state,
+        isFetching: true
+      };
     case FETCH_BEERS_SUCCESS:
-      return [
-        ...action.beers
-      ];
+      return {
+        ...state,
+        isFetching: false,
+        items: [
+          ...action.beers
+        ]
+      };
+    case FETCH_BEERS_FAILURE:
+      return {
+        ...state,
+        hasError: true,
+        status: action.status,
+        isFetching: false
+      };
     default:
       return state;
   }
