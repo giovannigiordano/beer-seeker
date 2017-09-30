@@ -16,7 +16,4 @@ const store = createStore(
 
 sagaMiddleware.run(rootSaga);
 
-store.dispatch({ type: 'FETCH_BEERS_REQUEST' });
-
-setTimeout(() => store.dispatch({ type: 'FETCH_BEERS_REQUEST', page: 2 }),7000);
 export default store;

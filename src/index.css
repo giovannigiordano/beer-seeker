@@ -1,5 +1,32 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Courier New", monospace;
+  text-align: center;
+}
+figure {
+  margin: 0;
+}
+.beers-item {
+  display: inline-block;
+  vertical-align: middle;
+  width: 10%;
+  padding: 10px;
+}
+.beers-item__title {
+  min-height: 40px;
+  margin: 10px 0 0;
+}
+.beers-item__info {
+  font-size: 0;
+  border: 1px solid #ccc;
+}
+.beers-item__info__col {
+  display: inline-block;
+  width: 50%;
+  font-size: 12px;
+}
+.beers-item__info__col--label {
+  background-color: #eee;
+  font-weight: bold;
 }
