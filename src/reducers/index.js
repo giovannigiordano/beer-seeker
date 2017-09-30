@@ -1,11 +1,14 @@
 import { combineReducers } from 'redux'
 import {FETCH_BEERS_REQUEST, FETCH_BEERS_FAILURE, FETCH_BEERS_SUCCESS} from "../constants/";
+import { FETCH_BEERS_SUCCESS_EMPTY } from '../constants';
 
 const beers =
   (state = {
     hasError: false,
     ioFetching: false,
-    items: []
+    isLastPage: false,
+    items: [],
+    page: 1
   }, action) => {
   switch (action.type) {
     case FETCH_BEERS_REQUEST:
@@ -18,9 +21,16 @@ const beers =
         ...state,
         isFetching: false,
         page: action.page,
+        isLastPage: false,
         items: [
           ...action.beers
         ]
+      };
+    case FETCH_BEERS_SUCCESS_EMPTY:
+      return {
+        ...state,
+        isFetching: false,
+        isLastPage: true
       };
     case FETCH_BEERS_FAILURE:
       return {

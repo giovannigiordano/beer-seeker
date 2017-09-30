@@ -1,5 +1,6 @@
 import * as ActionTypes from '../constants';
 
-export const fetchBeers = (payload) => ({
-  type: ActionTypes.FETCH_BEERS_REQUEST
+export const fetchBeers = (page) => ({
+  type: ActionTypes.FETCH_BEERS_REQUEST,
+  page
 });
