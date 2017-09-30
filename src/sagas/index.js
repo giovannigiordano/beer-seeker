@@ -2,13 +2,17 @@ import {
   FETCH_BEERS_REQUEST,
   FETCH_BEERS_SUCCESS,
   FETCH_BEERS_FAILURE,
-  FETCH_BEERS_SUCCESS_EMPTY
+  FETCH_BEERS_SUCCESS_EMPTY,
+  SERVICE_URL
 } from '../constants';
 import { call, put, takeEvery, all } from 'redux-saga/effects'
 
-const fetchBeers = function* fetchBeers({ page = 1 }) {
+const fetchBeers = function* fetchBeers({ page = 1, abv=0 }) {
   try {
-    const res = yield call(fetch, `https://api.punkapi.com/v2/beers?page=${page}`);
+    const res = yield call(
+      fetch,
+      `${SERVICE_URL}?page=${page}&abv_gt=${abv}`
+    );
     if (!res.ok) throw new Error(res.status);
     const beers = yield res.json();
     if (!!beers.length) {

@@ -8,13 +8,15 @@ const beers =
     ioFetching: false,
     isLastPage: false,
     items: [],
-    page: 1
+    page: 1,
+    abv: 0
   }, action) => {
   switch (action.type) {
     case FETCH_BEERS_REQUEST:
       return {
         ...state,
-        isFetching: true
+        isFetching: true,
+        abv: action.abv
       };
     case FETCH_BEERS_SUCCESS:
       return {
