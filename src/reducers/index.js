@@ -17,6 +17,7 @@ const beers =
       return {
         ...state,
         isFetching: false,
+        page: action.page,
         items: [
           ...action.beers
         ]
