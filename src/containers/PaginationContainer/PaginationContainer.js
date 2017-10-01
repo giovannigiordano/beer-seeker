@@ -27,11 +27,11 @@ const mapStateToProps =
     }
   };
 
-const mapDispatchToPros = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   loadBeersPage: (page, abv, ibu) => dispatch(fetchBeers(page, abv, ibu))
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToPros
+  mapDispatchToProps
 )(PaginationContainer);

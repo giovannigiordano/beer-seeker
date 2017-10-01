@@ -15,12 +15,12 @@ const mapStateToProps =
     }
   };
 
-const mapDispatchToPros = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   onFilter: ({ abv, ibu }) => dispatch(fetchBeers(1, abv, ibu)),
   onReset: () => dispatch(fetchBeers(1, 0, 0))
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToPros
+  mapDispatchToProps
 )(Filters);

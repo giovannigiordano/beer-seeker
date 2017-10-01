@@ -6,3 +6,8 @@ export const fetchBeers = (page = 1, abv = 0, ibu = 0) => ({
   abv,
   ibu
 });
+
+export const setBeersOrder = (order) => ({
+  type: ActionTypes.SET_BEERS_ORDER,
+  order
+});

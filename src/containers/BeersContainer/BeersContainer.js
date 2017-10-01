@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchBeers } from '../../actions';
 import { Beers } from '../../components';
+import { sortItems } from '../../utils';
 
 class BeersContainer extends Component {
   componentDidMount() {
@@ -24,12 +25,13 @@ const mapStateToProps =
   ({
      beers: {
        items,
+       order,
        hasError,
        isFetching
      }
    }) => {
     return {
-      items,
+      items: sortItems(items, order),
       hasError,
       isFetching
     }
