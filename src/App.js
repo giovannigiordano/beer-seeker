@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import svg from './assets/images/beer.svg';
-import { BeersContainer } from './containers';
+import { BeersContainer, FiltersContainer, PaginationContainer } from './containers';
 
 class App extends Component {
   render() {
@@ -8,7 +8,9 @@ class App extends Component {
       <div>
         <img src={svg} alt="" width={128} height={128}/>
         <div>
+          <FiltersContainer/>
           <BeersContainer/>
+          <PaginationContainer/>
         </div>
       </div>
     );

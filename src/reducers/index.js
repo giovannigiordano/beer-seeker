@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import {FETCH_BEERS_REQUEST, FETCH_BEERS_FAILURE, FETCH_BEERS_SUCCESS} from "../constants/";
 import { FETCH_BEERS_SUCCESS_EMPTY } from '../constants';
+import { FETCH_BEERS_FAILURE, FETCH_BEERS_REQUEST, FETCH_BEERS_SUCCESS } from '../constants/';
 
 const beers =
   (state = {
@@ -9,14 +9,16 @@ const beers =
     isLastPage: false,
     items: [],
     page: 1,
-    abv: 0
+    abv: 0,
+    ibu: 0
   }, action) => {
   switch (action.type) {
     case FETCH_BEERS_REQUEST:
       return {
         ...state,
         isFetching: true,
-        abv: action.abv
+        abv: action.abv,
+        ibu: action.ibu
       };
     case FETCH_BEERS_SUCCESS:
       return {

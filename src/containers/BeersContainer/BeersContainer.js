@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Beers, Pagination } from '../../components';
-import { fetchBeers, fetchBeersByAbvGt } from '../../actions';
+import { fetchBeers } from '../../actions';
+import { Beers } from '../../components';
 
 class BeersContainer extends Component {
   componentDidMount() {
@@ -12,26 +12,11 @@ class BeersContainer extends Component {
     const {
       items,
       isFetching,
-      hasError,
-      loadPage,
-      page,
-      isLastPage,
-      searchByAbv,
-      abv
+      hasError
     } = this.props;
     if (hasError) return <h3>Sorry, there was an error while loading beers.</h3>;
     if (isFetching) return <h3>Loading beers...</h3>;
-    return !!items.length && (
-      <div>
-        <button onClick={() => searchByAbv(10)}>Search</button>
-        <Beers items={items}/>
-        <Pagination
-          onPageClick={(page) => loadPage(page, abv)}
-          currentPage={page}
-          isLastPage={isLastPage}
-        />
-      </div>
-    )
+    return !!items.length && <Beers items={items}/>
   }
 }
 
@@ -39,27 +24,19 @@ const mapStateToProps =
   ({
      beers: {
        items,
-       isFetching,
        hasError,
-       page,
-       isLastPage,
-       abv,
+       isFetching
      }
    }) => {
     return {
       items,
-      isFetching,
       hasError,
-      page,
-      isLastPage,
-      abv
+      isFetching
     }
   };
 
 const mapDispatchToPros = dispatch => ({
-  loadBeers: () => dispatch(fetchBeers()),
-  loadPage: (page, abv) => dispatch(fetchBeers(page, abv)),
-  searchByAbv: (abv) => dispatch(fetchBeers(1, abv)),
+  loadBeers: () => dispatch(fetchBeers())
 });
 
 export default connect(
