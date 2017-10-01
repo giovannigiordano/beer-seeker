@@ -32,24 +32,30 @@ class Filters extends Component {
   render() {
     const { abv, ibu } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        ABV - {abv}
-        <input
-          type="range"
-          min={0}
-          max={20}
-          name="abv"
-          value={abv}
-          onChange={this.handleChange}/>
-        IBU - {ibu}
-        <input
-          type="range"
-          min={0}
-          max={100}
-          name="ibu"
-          value={ibu}
-          onChange={this.handleChange}/>
-        <button type="submit">Search</button>
+      <form className="form-search" onSubmit={this.handleSubmit}>
+        <div className="input-block">
+          <label>ABV - {abv}</label>
+          <input
+            type="range"
+            min={0}
+            max={20}
+            name="abv"
+            value={abv}
+            onChange={this.handleChange}/>
+        </div>
+        <div className="input-block">
+          <label>IBU - {ibu}</label>
+          <input
+            type="range"
+            min={0}
+            max={100}
+            name="ibu"
+            value={ibu}
+            onChange={this.handleChange}/>
+        </div>
+        <div>
+          <button type="submit" className="btn-submit">Filter</button>
+        </div>
       </form>
     )
   }

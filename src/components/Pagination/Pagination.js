@@ -4,7 +4,7 @@ class Pagination extends Component {
   render() {
     const { onPageClick, currentPage, isLastPage } = this.props;
     return (
-      <div>
+      <div className="pagination">
         {isLastPage && <p><strong>Sorry, there aren't other beers.</strong></p>}
         {currentPage > 1 &&
          <button
