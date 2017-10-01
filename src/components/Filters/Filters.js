@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 
 class Filters extends Component {
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { abv, ibu } = this.state;
+    this.props.onFilter({
+      abv: Number(abv),
+      ibu: Number(ibu)
+    })
+  };
+
   handleChange =
     ({
        target: {
@@ -12,13 +21,13 @@ class Filters extends Component {
         [name]: value
       });
     };
-  handleSubmit = (e) => {
-    e.preventDefault();
-    const { abv, ibu } = this.state;
-    this.props.onFilter({
-      abv,
-      ibu
-    })
+  resetForm = () => {
+    this.setState({
+      abv: 0,
+      ibu: 0
+    });
+
+    this.props.onReset();
   };
 
   constructor(props) {
@@ -54,7 +63,8 @@ class Filters extends Component {
             onChange={this.handleChange}/>
         </div>
         <div>
-          <button type="submit" className="btn-submit">Filter</button>
+          <button type="button" onClick={this.resetForm}>Reset</button>
+          <button type="submit">Filter</button>
         </div>
       </form>
     )
