@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Beers extends Component {
-  renderListItem = ({id, name, image_url, abv, ibu}) => (
+  renderListItem = ({ id, name, image_url, abv, ibu }) => (
     <div key={id} className="beers-item">
-      <figure className="beers-item__image">
-        <img src={image_url} alt={name} height={100}/>
-      </figure>
+      <Link to={`/${id}`}>
+        <figure className="beers-item__image">
+          <img src={image_url} alt={name} height={100}/>
+        </figure>
+      </Link>
       <h5 className="beers-item__title">{name}</h5>
       <div className="beers-item__info">
         <span className="beers-item__info__col beers-item__info__col--label">ABV</span>
