@@ -4,30 +4,64 @@ body {
   font-family: "Courier New", monospace;
   text-align: center;
 }
+
 figure {
   margin: 0;
 }
+
+div.loading {
+  position: relative;
+}
+
+div.loading .placeholder-text {
+  color: #000;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+
+div.loading img {
+  opacity: 0;
+}
+
+img {
+  -webkit-transition: opacity 400ms ease-in-out;
+  -moz-transition: opacity 400ms ease-in-out;
+  transition: opacity 400ms ease-in-out;
+}
+
 .beers-item {
   display: inline-block;
   vertical-align: middle;
   width: 10%;
   padding: 10px;
 }
+
 .beers-item__title {
   min-height: 40px;
   margin: 10px 0 5px;
 }
+
 .beers-item__info {
   font-size: 0;
-  border: 1px solid #ccc;
+  border: 1px solid #CCC;
 }
+
 .beers-item__info__col {
   display: inline-block;
   width: 50%;
   font-size: 12px;
 }
+
 .beers-item__info__col--label {
-  background-color: #eee;
+  background-color: #EEE;
   font-weight: bold;
 }
 
@@ -59,4 +93,33 @@ button {
 
 button + button {
   margin-left: 10px;
+}
+
+.beer-detail {
+  max-width: 960px;
+  margin: 60px auto 0;
+}
+
+.beer-detail::after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+}
+
+.beer-detail__col {
+  float: left;
+}
+
+.beer-detail__col--image {
+  width: 40%;
+}
+
+.beer-detail__col--content {
+  width: 60%;
+  text-align: left;
+}
+
+.beer-detail__title {
+  margin-top: 0;
 }
