@@ -15,7 +15,7 @@ figure {
 }
 .beers-item__title {
   min-height: 40px;
-  margin: 10px 0 0;
+  margin: 10px 0 5px;
 }
 .beers-item__info {
   font-size: 0;
