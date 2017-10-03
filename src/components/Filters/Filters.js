@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 
 class Filters extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      abv: props.abv,
+      ibu: props.ibu
+    };
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
     const { abv, ibu } = this.state;
@@ -21,6 +29,7 @@ class Filters extends Component {
         [name]: value
       });
     };
+
   resetForm = () => {
     this.setState({
       abv: 0,
@@ -30,12 +39,9 @@ class Filters extends Component {
     this.props.onReset();
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      abv: props.abv,
-      ibu: props.ibu
-    };
+  componentWillReceiveProps({ abv, ibu }) {
+    if (abv !== this.state.abv) this.setState({ abv });
+    if (ibu !== this.state.ibu) this.setState({ ibu })
   }
 
   render() {
