@@ -38,7 +38,7 @@ const mapStateToProps =
   };
 
 const mapDispatchToPros = dispatch => ({
-  loadBeers: () => dispatch(fetchBeers())
+  loadBeers: () => dispatch(fetchBeers({ queryString: '' }))
 });
 
 export default connect(

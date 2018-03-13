@@ -1,9 +1,5 @@
-export const SERVICE_URL = 'https://api.punkapi.com/v2/beers';
-export const FETCH_BEERS_REQUEST = 'FETCH_BEERS_REQUEST';
-export const FETCH_BEERS_SUCCESS = 'FETCH_BEERS_SUCCESS';
-export const FETCH_BEERS_SUCCESS_EMPTY = 'FETCH_BEERS_SUCCESS_EMPTY';
-export const FETCH_BEERS_FAILURE = 'FETCH_BEERS_FAILURE';
-export const SET_BEERS_ORDER = 'SET_BEERS_ORDER';
+export const API_URL = 'https://api.punkapi.com/v2/beers'
+
 export const DEFAULT = 'DEFAULT';
 export const NAME_ASC = 'NAME_ASC';
 export const NAME_DESC = 'NAME_DESC';
